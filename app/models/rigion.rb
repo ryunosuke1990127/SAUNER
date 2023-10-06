@@ -1,0 +1,2 @@
+class Rigion < ApplicationRecord
+end
