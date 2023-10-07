@@ -17,7 +17,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.string :name_kana, null: false
       t.string :birth_place, null: false
-      t.boolean :is_deleted, null: false
+      t.boolean :is_deleted, default: false,null: false
 
 
       ## Trackable
