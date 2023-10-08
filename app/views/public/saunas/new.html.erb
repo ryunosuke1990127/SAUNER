@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+ <body>
+   <main>
+     <%= form_with model: @sauna ,url: saunas_path, method: :POST do |f| %>
+     <form class="form-horizontal">
+              <div class="form-group row my-3">
+               <label class="col-sm-6"><h1>サウナ施設投稿フォーム</h1></label>
+              </div>
+
+              <div class="form-group row my-3">
+                <label class="col-sm-4">サウナ名</label>
+                 <dd><label class="col-sm-4"><%= f.text_field :name, placeholder: "サウナ名"  %></label></dd>
+              </div>
+
+              <div class="form-group row my-3">
+                <label class="col-sm-4">地域</label>
+                 <dd><label class="col-sm-4"><%= f.select :region_id, options_from_collection_for_select(Region.all, :id, :region_name) %></label></dd>
+              </div>
+
+              <div class="form-group row my-3">
+                <label class="col-sm-4">所在地</label>
+                 <dd><label class="col-sm-4"><%= f.text_field :location, placeholder: "所在地"  %></label></dd>
+              </div>
+
+              <div class="form-group row my-3">
+                <label class="col-sm-4">金額</label>
+                 <dd><label class="col-sm-4"><%= f.text_field :price, placeholder: "金額"  %></label></dd>
+              </div>
+
+              <div class="form-group row my-3">
+                <label class="col-sm-4">投稿理由</label>
+                 <dd><label class="col-sm-4"><%= f.text_area :post_reason,placeholder: "1000"%></label></dd>
+              </div>
+
+              <div class="form-group row my-3">
+                <label class="col-sm-4">投稿画像</label>
+                 <dd><label class="col-sm-4"><%= f.file_field :image, accept: "image/*" %></label></dd>
+              </div>
+
+               <div class="form-group row my-3">
+                <label class="col-sm-4">タグ</label>
+                 <dd><label class="col-sm-4"></label></dd>
+              </div>
+
+              <div class="form-group row my-3">
+                <label class="col-sm-4"><%= f.submit "申請する" ,class: 'btn btn-success btn-lg '%></label>
+              </div>
+      <% end %>
+    </main>
+  </body>
+</html>
+

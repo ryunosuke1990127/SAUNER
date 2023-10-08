@@ -1,2 +1,0 @@
-class Rigion < ApplicationRecord
-end

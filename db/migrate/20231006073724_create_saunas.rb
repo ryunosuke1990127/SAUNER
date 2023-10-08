@@ -7,6 +7,7 @@ class CreateSaunas < ActiveRecord::Migration[6.1]
       t.string :location , null: false
       t.string :post_reason , null: false
       t.string :price , null: false
+      t.boolean :is_approve, default: false, null: false
       t.timestamps
     end
   end
