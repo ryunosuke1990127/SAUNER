@@ -17,11 +17,11 @@ Rails.application.routes.draw do
   # ユーザー側の設定
   scope module: :public do
     root to: 'homes#top'
-    get '/saunas/create_check' => 'saunas#create_cheak'
     get '/saunas/complete' => 'saunas#complete'
-    resources :saunas,only:[:index,:show,:create,:complete,:new]
+    resources :saunas do
+      get '/create_check' => 'saunas#create_cheak'
+    end
     resources :regions,only:[:create,:index]
-
   end
 
   # 管理者側の設定

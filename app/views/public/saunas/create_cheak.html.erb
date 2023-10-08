@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+ <body>
+   <div class="container">
+       <div class="row">
+        <div class="col-sm-5">
+          <h1>マイページ</h1>
+          <div class="btn">投稿確認/<div>
+
+          <table>
+            <tr><th>サウナ名</th><td><%= @sauna.name %></td></tr>
+            <tr><th>地域</th><td><%= @sauna.region.region_name %></td></tr>
+            <tr><th>所在地</th><td><%= @sauna.location %></td></tr>
+            <tr><th>価格</th><td><%= @sauna.price%></td></tr>
+            <tr><th>投稿理由</th><td><%= @sauna.post_reason %></td></tr>
+            <tr><th>画像</th><td></td></tr>
+          </table>
+              <div class="btn"><%=link_to "申請"  ,saunas_complete_path , method: :GET, class: 'btn btn-primary' %> </div>
+         </div>
+      </div>
+    </div>
+  </body>
+ </html>
