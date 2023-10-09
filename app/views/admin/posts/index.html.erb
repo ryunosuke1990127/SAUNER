@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+ <body>
+   <div class="container">
+       <div class="row">
+        <div class="mx-auto">
+            <h1>承認待ち一覧</h1>
+          <table class="table">
+            <!--テーブルヘッダ-->
+            <thead>
+              <tr>
+                <th>投稿ユーザー</th>
+                <th>サウナ名</th>
+                <th>地域</th>
+                <th>投稿日</th>
+              </tr>
+            </thead>
+            <!--テーブルの項目設定-->
+           <% @post_index.each do |post| %>
+           <tbody>
+             <tr>
+               <td><div><%= post.member.name%></div></td>
+               <td><div><%= link_to admin_post_path(post.id) do %><%= post.name %><% end %></div></td>
+               <td><div><%= post.region.region_name %></div></td>
+               <td><div><%= post.updated_at %></div></td>
+             </tr>
+           </tbody>
+           <% end %>
+           </table>
+         </div>
+       </div>
+    </div>
+ </body>
+
+ </html>
