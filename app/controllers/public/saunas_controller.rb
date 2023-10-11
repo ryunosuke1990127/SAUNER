@@ -1,9 +1,12 @@
 class Public::SaunasController < ApplicationController
-    # サウナ施設の一覧
+    # サウナ施設の一覧取得処理
     def index
+      @sauna_index = Sauna.all
     end
 
+    # クリックされたサウナ情報の取得処理
     def show
+      @sauna = Sauna.find(params[:id])
     end
 
     # サウナ施設の投稿用のフォームを準備
@@ -20,13 +23,13 @@ class Public::SaunasController < ApplicationController
       redirect_to sauna_create_check_path(@sauna.id)
     end
 
-    # 投稿確認画面
+    # 投稿確認画面表示処理
     def create_cheak
       # 選択しているサウナ情報を取得
       @sauna = Sauna.find(params[:sauna_id])
     end
 
-    # 投稿完了画面
+    # 投稿完了画面表示処理
     def complete
     end
 

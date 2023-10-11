@@ -20,8 +20,9 @@
                 <th>投稿日</th>
               </tr>
             </thead>
-            <!--テーブルの項目設定-->
+            <!--テーブルの項目設定(投稿承認待ち=is_approveがfalseのみのものを表示)-->
            <% @post_index.each do |post| %>
+            <% if post.is_approve==false%>
            <tbody>
              <tr>
                <td><div><%= post.member.name%></div></td>
@@ -30,6 +31,7 @@
                <td><div><%= post.updated_at %></div></td>
              </tr>
            </tbody>
+             <% end %>
            <% end %>
            </table>
          </div>

@@ -1,4 +1,8 @@
 <h2>Log in</h2>
+<div>
+  <!--ログイン制限に違反している際のメッセージ-->
+  <%= flash[:notice] %>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">

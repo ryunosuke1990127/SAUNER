@@ -26,7 +26,8 @@ Rails.application.routes.draw do
 
   # 管理者側の設定
    namespace :admin do
-     get  '/posts/destroy_complete' =>'posts#destroy'
+     get  '/posts/deny' =>'posts#deny'
+     get  '/posts/complete' =>'posts#complete'
     resources :posts
     resources :members  do
        patch  '/withdraw' =>'members#withdraw'
