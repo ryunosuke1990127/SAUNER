@@ -4,4 +4,6 @@ class Sauna < ApplicationRecord
 
   belongs_to :region
   belongs_to :member
+  
+  has_many :reviews, dependent: :destroy
 end

@@ -9,6 +9,11 @@
        <div class="row">
         <div class="col-md-3">
 　　　　<h1>画像表示予定</h1>
+　　　　<%= form_with model: @sauna ,url: new_review_path, method: :GET do |f|%>
+　　　　<!--サウナidを渡す-->
+　　　　<%= f.hidden_field :id , :value => @sauna.id%>
+　　　　<%= f.submit "レビューする", class:  'btn btn-success btn-lg '%>
+　　　　<% end %>
         </div>
 
         <div class="col-md-8 offset-md-1">

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get '/create_check' => 'saunas#create_cheak'
     end
     resources :regions,only:[:create,:index]
+    resources :reviews,only:[:create,:new,:show]
   end
 
   # 管理者側の設定
