@@ -26,5 +26,12 @@
         </div>
       </div>
     </div>
+      <!--レビューページ-->
+      <% @review.each do |r|%>
+      <div>レビュー件数 <%= @review.count %>件</div>
+        <div>レビュー者:<%=r.member.name%></div>
+        <div>内容:<%=r.review_content%></div>
+        <%= link_to 'もっと見る' ,review_path(r.id) %>
+      <% end %>
   </body>
 </html>

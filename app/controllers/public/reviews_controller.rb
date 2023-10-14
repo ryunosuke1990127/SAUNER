@@ -8,13 +8,15 @@ class Public::ReviewsController < ApplicationController
     @member = current_member.name
   end
 
+  # レビュー内容の詳細画面へ
   def show
+    @review_detail = Review.find(params[:id])
   end
 
   def create
     @review = Review.new(review_params)
     @review.save
-    byebug
+    redirect_to sauna_path(@review.sauna_id)
   end
 
   private

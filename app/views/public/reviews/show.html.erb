@@ -1,2 +1,20 @@
-<h1>Public::Reviews#show</h1>
-<p>Find me in app/views/public/reviews/show.html.erb</p>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+ <body>
+   <div class="container">
+       <div class="row">
+        <div class="mx-auto">
+          <h1>レビュー内容</h1>
+          <div>レビュー者:<%=@review_detail.member.name%></div>
+          <div><%=@review_detail.review_content%></div>
+       </div>
+    </div>
+  </div>
+ </body>
+
+ </html>

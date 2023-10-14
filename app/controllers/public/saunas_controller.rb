@@ -6,7 +6,10 @@ class Public::SaunasController < ApplicationController
 
     # クリックされたサウナ情報の取得処理
     def show
+      # サウナ情報の取得
       @sauna = Sauna.find(params[:id])
+      # レビュー内容の取得
+      @review = Review.all
     end
 
     # サウナ施設の投稿用のフォームを準備
