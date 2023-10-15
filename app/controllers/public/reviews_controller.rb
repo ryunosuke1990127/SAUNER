@@ -11,6 +11,10 @@ class Public::ReviewsController < ApplicationController
   # レビュー内容の詳細画面へ
   def show
     @review_detail = Review.find(params[:id])
+    # コメントの一覧を表示
+    @comment_index = Comment.all
+    # コメント用のフォームを準備するため空のインスタンスをセット
+    @comment = Comment.new
   end
 
   def create
@@ -19,11 +23,22 @@ class Public::ReviewsController < ApplicationController
     redirect_to sauna_path(@review.sauna_id)
   end
 
+  def comment_create
+    @comment_content = Comment.new (comment_params)
+    @comment_content.member_id = current_member.id
+    @comment_content.save
+  end
+
   private
 
+  # レビュー内容のパラメータ設定
   def review_params
     params.require(:review).permit(:sauna_id, :member_id, :review_content)
   end
 
+  # コメント用のパラメータ設定
+  def comment_params
+    params.require(:comment).permit(:review_id, :member_id, :comment_content)
+  end
 
 end

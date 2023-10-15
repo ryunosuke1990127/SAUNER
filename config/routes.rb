@@ -22,7 +22,10 @@ Rails.application.routes.draw do
       get '/create_check' => 'saunas#create_cheak'
     end
     resources :regions,only:[:create,:index]
-    resources :reviews,only:[:create,:new,:show]
+    resources :reviews,only:[:new,:create,:show]
+    post 'reviews/comment_create' => 'reviews#comment_create'
+
+
   end
 
   # 管理者側の設定

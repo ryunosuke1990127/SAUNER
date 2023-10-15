@@ -12,9 +12,21 @@
           <h1>レビュー内容</h1>
           <div>レビュー者:<%=@review_detail.member.name%></div>
           <div><%=@review_detail.review_content%></div>
+        </div>
        </div>
-    </div>
-  </div>
+        <!--コメント投稿用のフォーム-->
+        <%= form_with model: @comment,url: reviews_comment_create_path, method: :POST do |c|%>
+        <%= c.text_field :comment_content %>
+        <!--レビュー情報を渡す-->
+        <%= c.hidden_field :review_id , :value => @review_detail.id %>
+        <%= c.submit 'コメントする'%>
+        <% end %>
+        <!--コメント一覧-->
+        <% @comment_index.each do |comment|%>
+        <div>返信者：<%=comment.member.name%></div>
+        <div><%=comment.comment_content%></div>
+        <% end %>
+   </div>
  </body>
 
  </html>
