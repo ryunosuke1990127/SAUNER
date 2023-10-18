@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+ <body>
+   <div class="container">
+       <div class="row">
+        <div class="mx-auto">
+          <h1><%=@member.name%>さんのレビュー一覧</h1>
+          <table class="table">
+            <!--テーブルヘッダ-->
+            <thead>
+              <tr>
+                <th>レビューしたサウナ</th>
+                <th>地域</th>
+                <th>レビュー日</th>
+              </tr>
+            </thead>
+            <!--テーブルの項目設定-->
+          <% @member_review.each do |m|%>
+           <tbody>
+             <tr>
+               <td><div><%= m.sauna.name%></div></td>
+               <td><div><%= m.sauna.region.region_name%></div></td>
+               <td><div><%= link_to  do %><%= m.updated_at%><% end %> </div></td>
+             </tr>
+           </tbody>
+           <% end %>
+           </table>
+         </div>
+       </div>
+    </div>
+ </body>
+ </html>
+

@@ -24,7 +24,7 @@
                   <li class="nav-item"><%= link_to "ログアウト",destroy_member_session_path, method: :delete%></li>
                 <% elsif admin_signed_in? %>
                 <!--管理者用のヘッダー-->
-                　<li class="nav-item"><%= link_to "レビュー管理"%></li>
+                　<li class="nav-item"><%= link_to "レビュー管理",admin_reviews_path, method: :GET%></li>
                   <li class="nav-item"><%= link_to "会員一覧",admin_members_path, method: :GET%></li>
                   <li class="nav-item"><%= link_to "投稿承認待ち",admin_posts_path, method: :GET%></li>
                   <li class="nav-item"><%= link_to "ログアウト",destroy_admin_session_path, method: :delete%></li>

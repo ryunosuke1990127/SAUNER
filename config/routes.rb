@@ -30,11 +30,13 @@ Rails.application.routes.draw do
 
   # 管理者側の設定
    namespace :admin do
-     get  '/posts/deny' =>'posts#deny'
-     get  '/posts/complete' =>'posts#complete'
+     get '/posts/deny' =>'posts#deny'
+     get '/posts/complete' =>'posts#complete'
+     get '/reviews/member_index/:id' => 'reviews#member_index'
     resources :posts
     resources :members  do
        patch  '/withdraw' =>'members#withdraw'
     end
+    resources :reviews,only:[:index,:show,:destroy]
   end
 end

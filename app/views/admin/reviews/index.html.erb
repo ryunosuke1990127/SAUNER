@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+<h1>レビュー管理</h1>
+ <body>
+   <div class="container">
+       <div class="row">
+        <div class="mx-auto">
+          <h1>会員一覧</h1>
+          <table class="table">
+            <!--テーブルヘッダ-->
+            <thead>
+              <tr>
+                <th>会員ID</th>
+                <th>会員名</th>
+              </tr>
+            </thead>
+            <!--テーブルの項目設定-->
+          <% @member.each do |m|%>
+            <!--退会済みのユーザーは表示しない-->
+            <% if m.is_deleted==false %>
+           <tbody>
+             <tr>
+               <td><div><%= m.id%></div></td>
+               <td><div><%= link_to admin_path(m.id) do %><%= m.name%><% end %> </div></td>
+             </tr>
+           </tbody>
+             <% end %>
+           <% end %>
+           </table>
+         </div>
+       </div>
+    </div>
+ </body>
+ </html>
+

@@ -21,8 +21,8 @@
         <%= c.hidden_field :review_id , :value => @review_detail.id %>
         <%= c.submit 'コメントする'%>
         <% end %>
-        <!--コメント一覧-->
-        <% @comment_index.each do |comment|%>
+        <!--開いている投稿詳細に付随しているコメントを全件取得-->
+        <% @review_detail.comments.each do |comment|%>
         <div>返信者：<%=comment.member.name%></div>
         <div><%=comment.comment_content%></div>
         <% end %>

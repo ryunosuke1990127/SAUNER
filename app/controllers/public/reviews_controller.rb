@@ -11,8 +11,6 @@ class Public::ReviewsController < ApplicationController
   # レビュー内容の詳細画面へ
   def show
     @review_detail = Review.find(params[:id])
-    # コメントの一覧を表示
-    @comment_index = Comment.all
     # コメント用のフォームを準備するため空のインスタンスをセット
     @comment = Comment.new
   end
@@ -27,6 +25,8 @@ class Public::ReviewsController < ApplicationController
     @comment_content = Comment.new (comment_params)
     @comment_content.member_id = current_member.id
     @comment_content.save
+    # saveまで完了したらページを更新するために前のページへリダイレクト
+    redirect_back fallback_location: root_path
   end
 
   private
