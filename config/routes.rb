@@ -18,14 +18,12 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/saunas/complete' => 'saunas#complete'
+    post '/reviews/comment_create' => 'reviews#comment_create'
     resources :saunas do
       get '/create_check' => 'saunas#create_cheak'
     end
     resources :regions,only:[:create,:index]
     resources :reviews,only:[:new,:create,:show]
-    post 'reviews/comment_create' => 'reviews#comment_create'
-
-
   end
 
   # 管理者側の設定
@@ -37,6 +35,8 @@ Rails.application.routes.draw do
     resources :members  do
        patch  '/withdraw' =>'members#withdraw'
     end
-    resources :reviews,only:[:index,:show,:destroy]
+    resources :reviews do
+      get '/confirm' => 'reviews#confirm'
+    end
   end
 end
