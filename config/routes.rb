@@ -19,10 +19,11 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/saunas/complete' => 'saunas#complete'
     post '/reviews/comment_create' => 'reviews#comment_create'
+    get '/regions/region_sauna' => 'regions#region_sauna'
     resources :saunas do
       get '/create_check' => 'saunas#create_cheak'
     end
-    resources :regions,only:[:create,:index]
+    resources :regions,only:[:index]
     resources :reviews,only:[:new,:create,:show]
   end
 
