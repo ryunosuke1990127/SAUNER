@@ -21,6 +21,8 @@ class Public::SaunasController < ApplicationController
     # サウナ投稿ないの申請ボタンが押された時の処理
     def create
       @sauna = Sauna.new(sauna_params)
+      tag = params[:sauna][:tag_name]
+      byebug
       @sauna.member_id = current_member.id
       @sauna.save
       redirect_to sauna_create_check_path(@sauna.id)
@@ -41,4 +43,5 @@ class Public::SaunasController < ApplicationController
       def sauna_params
         params.require(:sauna).permit(:name,:price,:image,:post_reason,:location,:region_id,:member_id)
       end
+
 end

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
     resources :regions,only:[:index]
     resources :reviews,only:[:new,:create,:show]
+    resources :searchs,only:[:new,:create]
   end
 
   # 管理者側の設定
