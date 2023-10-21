@@ -5,7 +5,7 @@ class CreateSaunas < ActiveRecord::Migration[6.1]
       t.integer :member_id, null: false
       t.string :name , null: false
       t.string :location , null: false
-      t.string :post_reason , null: false
+      t.text :post_reason , null: false
       t.string :price , null: false
       t.boolean :is_approve, default: false, null: false
       t.timestamps

@@ -18,14 +18,17 @@ class Public::SaunasController < ApplicationController
       @sauna = Sauna.new
     end
 
-    # サウナ投稿ないの申請ボタンが押された時の処理
+    # サウナ投稿内の申請ボタンが押された時の処理
     def create
-      @sauna = Sauna.new(sauna_params)
-      tag = params[:sauna][:tag_name]
-      byebug
-      @sauna.member_id = current_member.id
-      @sauna.save
-      redirect_to sauna_create_check_path(@sauna.id)
+      # ログイン中のユーザーの投稿内容を取得
+      @sauna = current_member.saunas.new(sauna_params)
+      # 受け取った値を区切る
+      tag_list = params[:sauna][:tag_name].split(',')
+        if @sauna.save
+          @sauna.save_tag(tag_list)
+          redirect_to sauna_create_check_path(@sauna.id)
+        else
+        end
     end
 
     # 投稿確認画面表示処理
@@ -41,7 +44,7 @@ class Public::SaunasController < ApplicationController
     private
       # 投稿フォームからのパラメータ取得を許可
       def sauna_params
-        params.require(:sauna).permit(:name,:price,:image,:post_reason,:location,:region_id,:member_id)
+        params.require(:sauna).permit(:name,:price,:image,:post_reason,:location,:region_id)
       end
 
 end

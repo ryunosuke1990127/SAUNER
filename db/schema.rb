@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_06_075546) do
+ActiveRecord::Schema.define(version: 2023_10_21_011944) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -107,21 +107,30 @@ ActiveRecord::Schema.define(version: 2023_10_06_075546) do
     t.integer "member_id", null: false
     t.string "name", null: false
     t.string "location", null: false
-    t.string "post_reason", null: false
+    t.text "post_reason", null: false
     t.string "price", null: false
     t.boolean "is_approve", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tag_saunas", force: :cascade do |t|
+    t.integer "sauna_id"
+    t.integer "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sauna_id"], name: "index_tag_saunas_on_sauna_id"
+    t.index ["tag_id"], name: "index_tag_saunas_on_tag_id"
+  end
+
   create_table "tags", force: :cascade do |t|
-    t.integer "sauna_id", null: false
     t.string "tag_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tag_name"], name: "index_tags_on_tag_name", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "tag_saunas", "saunas"
+  add_foreign_key "tag_saunas", "tags"
 end
