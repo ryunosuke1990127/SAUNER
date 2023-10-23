@@ -26,6 +26,19 @@
         </div>
       </div>
     </div>
+      <!--いいね機能-->
+      <!--今ログインしているユーザーがそのサウナ情報にいいねしているかしていないかを判定-->
+      <%if @sauna.favorited_by?(current_member)%>
+        <!--すでにいいねしている場合-->
+        <p><%= link_to sauna_favorites_path(@sauna),method: :DELETE do%>🖤<%= @sauna.favorites.count %>いいね
+          <% end %>
+        </p>
+      <% else %>
+        <!--いいねをまだしていない場合-->
+        <p><%= link_to sauna_favorites_path(@sauna),method: :POST do%>🤍<%= @sauna.favorites.count %>いいね
+          <% end %>
+        </p>
+      <% end %>
       <!--レビューページ-->
       <% @review.each do |r|%>
       <div>レビュー件数 <%= @review.count %>件</div>

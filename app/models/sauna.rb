@@ -5,10 +5,12 @@ class Sauna < ApplicationRecord
   belongs_to :region
   belongs_to :member
 
+  has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :tag_saunas, dependent: :destroy
   has_many :tags,through: :tag_saunas
 
+  # タグ保存のためのメソッドを定義
   def save_tag(sent_tags)
     # 現在存在するタグの取得
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
@@ -27,5 +29,10 @@ class Sauna < ApplicationRecord
       new_post_tag = Tag.find_or_create_by(tag_name: new)
       self.tags << new_post_tag
     end
+  end
+
+  # いいねを押したユーザーがfavoriteテーブルに存在するかを確認
+  def favorited_by?(member)
+    favorites.exists?(member_id: member.id)
   end
 end

@@ -20,12 +20,15 @@ Rails.application.routes.draw do
     get '/saunas/complete' => 'saunas#complete'
     post '/reviews/comment_create' => 'reviews#comment_create'
     get '/regions/region_sauna' => 'regions#region_sauna'
+    post '/tags/search' => 'tags#search'
     resources :saunas do
       get '/create_check' => 'saunas#create_cheak'
+      resource :favorites,only:[:create,:destroy]
     end
     resources :regions,only:[:index]
     resources :reviews,only:[:new,:create,:show]
     resources :searchs,only:[:new,:create]
+    resources :tags,only:[:index]
   end
 
   # 管理者側の設定
@@ -40,5 +43,6 @@ Rails.application.routes.draw do
     resources :reviews do
       get '/confirm' => 'reviews#confirm'
     end
+
   end
 end
