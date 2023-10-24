@@ -44,7 +44,7 @@ class Public::SaunasController < ApplicationController
     private
       # 投稿フォームからのパラメータ取得を許可
       def sauna_params
-        params.require(:sauna).permit(:name,:price,:image,:post_reason,:location,:region_id,:tag_name)
+        params.require(:sauna).permit(:name,:price,:image,:post_reason,:location,:region_id)
       end
 
 end

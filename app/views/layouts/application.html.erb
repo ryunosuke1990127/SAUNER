@@ -18,7 +18,7 @@
           <ul class="navbar-nav ml-auto">
 
                 <% if member_signed_in? %>
-                  <li class="nav-item"><%= link_to "マイページ" %></li>
+                  <li class="nav-item"><%= link_to "マイページ",mypage_path(current_member.id), method: :GET %></li>
                   <li class="nav-item"><%= link_to "サウナ一覧",regions_path, method: :GET%></li>
                   <li class="nav-item"><%= link_to "投稿",new_sauna_path, method: :GET%></li>
                   <li class="nav-item"><%= link_to "ログアウト",destroy_member_session_path, method: :delete%></li>

@@ -21,7 +21,7 @@
               </tr>
             </thead>
             <!--テーブルの項目設定(投稿承認されたもの=is_approveがtrueのみのものを表示)-->
-           <% @tags.sauna.each do |sauna| %>
+           <% @saunas_index.each do |sauna| %>
             <% if sauna.is_approve==true%>
            <tbody>
              <tr>
@@ -38,5 +38,4 @@
        </div>
     </div>
  </body>
-
  </html>

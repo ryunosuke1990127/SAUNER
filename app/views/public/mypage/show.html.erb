@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+ <body>
+   <div class="container">
+       <div class="row">
+        <div class="col-sm-5">
+          <h1>マイページ</h1>
+          <div class="btn">登録情報</div>
+
+          <table>
+            <tr><th>氏名</th><td><%= @mypage.name %></td></tr>
+            <tr><th>フリガナ</th><td><%= @mypage.name_kana%></td></tr>
+            <tr><th>出身地</th><td><%= @mypagebirth_place %></td></tr>
+          </table>
+              <div class="btn"><%=link_to "行きたいリスト",mypage_favorite_path(@mypage.id) , method: :GET, class: 'btn btn-primary' %> </div>
+         </div>
+      </div>
+    </div>
+  </body>
+ </html>
