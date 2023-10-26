@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     post '/reviews/comment_create' => 'reviews#comment_create'
     get '/regions/region_sauna' => 'regions#region_sauna'
     post '/tags/search' => 'tags#search'
+    post '/search/search_sauna' => 'searchs#search_sauna'
 
     resources :saunas do
       get '/create_check' => 'saunas#create_cheak'
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
 
     resources :regions,only:[:index]
     resources :reviews,only:[:new,:create,:show]
-    resources :searchs,only:[:new,:create]
+    resources :searchs,only:[:new]
     resources :tags,only:[:index]
   end
 

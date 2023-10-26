@@ -7,7 +7,7 @@
 
  <body>
    <main>
-     <%= form_with model: @sauna ,url: searchs_path, method: :POST do |f| %>
+     <%= form_with url: search_search_sauna_path, method: :POST do |f| %>
      <form class="form-horizontal">
               <div class="form-group row my-3">
                <label class="col-sm-6"><h1>絞り込み条件を選択してください</h1></label>
@@ -15,17 +15,17 @@
 
               <div class="form-group row my-3">
                 <label class="col-sm-4">金額</label>
-                 <dd><label class="col-sm-4"><%= f.text_field :price%></label></dd>
+                 <dd><label class="col-sm-4"><%= f.text_field :price%>円未満</label></dd>
               </div>
 
               <div class="form-group row my-3">
                 <label class="col-sm-4">いいね数</label>
-                 <dd><label class="col-sm-4"></label></dd>
+                 <dd><label class="col-sm-4"><%= f.text_field :favorite%>以上</label></dd>
               </div>
 
               <div class="form-group row my-3">
                 <label class="col-sm-4">レビュー数</label>
-                 <dd><label class="col-sm-4"></label></dd>
+                 <dd><label class="col-sm-4"><%= f.text_field :review%>以上</label></dd>
               </div>
 
               <div class="form-group row my-3">

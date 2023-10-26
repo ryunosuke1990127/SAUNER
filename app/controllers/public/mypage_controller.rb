@@ -7,6 +7,7 @@ class Public::MypageController < ApplicationController
   # ユーザーの行きたいリスト
   def favorite
     member_favorites = current_member.favorites
-    @favorite_sauna = member_favorites.flat_map(&:sauna)
+    favorite_sauna = member_favorites.flat_map(&:sauna)
+    @sauna_list = favorite_sauna
   end
 end

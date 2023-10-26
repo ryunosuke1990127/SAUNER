@@ -19,20 +19,22 @@
               </tr>
             </thead>
             <!--テーブルの項目設定(投稿承認されたもの=is_approveがtrueのみのものを表示)-->
-           <% @favorite_sauna.each do |sauna| %>
-            <% if sauna.is_approve==true%>
-           <tbody>
-             <tr>
-               <td><div><%= link_to sauna_path(sauna.id) do %><%= sauna.name%><% end %></div></td>
-               <td><div><%= sauna.tag%></div></td>
-             </tr>
-           </tbody>
-             <% end %>
+           <% @sauna_list.each do |sauna| %>
+
+                    <% if sauna.is_approve==true%>
+                       <tbody>
+                         <tr>
+                           <td><div><%= link_to sauna_path(sauna.id) do %><%= sauna.name%><% end %></div></td>
+                           <% sauna.tags.each do |tag| %>
+                           <td><div><%= tag.tag_name%></div></td>
+                         </tr>
+                       </tbody>
+                   <% end %>
+                 <% end %>
            <% end %>
            </table>
          </div>
        </div>
     </div>
  </body>
-
  </html>
