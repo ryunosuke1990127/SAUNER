@@ -9,7 +9,7 @@ class Public::SaunasController < ApplicationController
       # サウナ情報の取得
       @sauna = Sauna.find(params[:id])
       # レビュー内容の取得
-      @review = Review.all
+      @review = @sauna.reviews
     end
 
     # サウナ施設の投稿用のフォームを準備
@@ -42,9 +42,9 @@ class Public::SaunasController < ApplicationController
     end
 
     private
-      # 投稿フォームからのパラメータ取得を許可
-      def sauna_params
-        params.require(:sauna).permit(:name,:price,:image,:post_reason,:location,:region_id)
-      end
+    # 投稿フォームからのパラメータ取得を許可
+    def sauna_params
+      params.require(:sauna).permit(:name,:price,:image,:post_reason,:location,:region_id)
+    end
 
 end

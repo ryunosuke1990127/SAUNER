@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+ <body>
+   <div class="container">
+       <div class="row">
+        <div class="mx-auto">
+            <h1>検索にヒットしたサウナ一覧です</h1>
+          <table class="table">
+            <!--テーブルヘッダ-->
+            <thead>
+              <tr>
+                <th>サウナ名</th>
+                <th>いいね数</th>
+                <th>レビュー数</th>
+                <th>Tag</th>
+              </tr>
+            </thead>
+            <!--テーブルの項目設定(投稿承認されたもの=is_approveがtrueのみのものを表示)-->
+           <% @sauna_result.each do |sauna| %>
+           <tbody>
+             <tr>
+               <td><div><%= link_to sauna_path(sauna.id) do %><%= sauna.name%><% end %></div></td>
+               <td><div></div></td>
+               <td><div></div></td>
+               <td><div></div></td>
+             </tr>
+           </tbody>
+           <% end %>
+           </table>
+         </div>
+       </div>
+    </div>
+ </body>
+
+ </html>

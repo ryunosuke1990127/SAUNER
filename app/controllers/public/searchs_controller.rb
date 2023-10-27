@@ -8,10 +8,8 @@ class Public::SearchsController < ApplicationController
   def search_sauna
     # 入力されている情報を取得
     price = params[:price]
-    favorite = params[:favorite]
-    review = params[:review]
-    @sauna_result = Sauna.where("price LIKE?","%#{price}%")
-    byebug
+    location = params[:location]
+    @sauna_result = Sauna.where("price <= ? ", "#{price}").where("location LIKE ?", "%#{location}%").where(is_approve: true)
   end
 
 end
