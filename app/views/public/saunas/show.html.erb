@@ -8,7 +8,7 @@
     <div class="container">
        <div class="row">
         <div class="col-md-3">
-　　　　<h1>画像表示予定</h1>
+　　　　<h1><%= image_tag @sauna.get_iamge(800,100)%></h1>
 　　　　<%= form_with model: @sauna ,url: new_review_path, method: :GET do |f|%>
 　　　　<!--サウナidを渡す-->
 　　　　<%= f.hidden_field :id , :value => @sauna.id%>

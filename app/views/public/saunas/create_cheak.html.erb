@@ -18,7 +18,7 @@
             <tr><th>所在地</th><td><%= @sauna.location %></td></tr>
             <tr><th>価格</th><td><%= @sauna.price%></td></tr>
             <tr><th>投稿理由</th><td><%= @sauna.post_reason %></td></tr>
-            <tr><th>画像</th><td></td></tr>
+            <tr><th>画像</th><td><%= image_tag @sauna.get_iamge(100,100) %></td></tr>
           </table>
               <div class="btn"><%=link_to "申請"  ,saunas_complete_path , method: :GET, class: 'btn btn-primary' %> </div>
          </div>

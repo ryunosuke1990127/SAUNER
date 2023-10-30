@@ -15,7 +15,7 @@
           <table>
             <tr><th>氏名</th><td><%= @mypage.name %></td></tr>
             <tr><th>フリガナ</th><td><%= @mypage.name_kana%></td></tr>
-            <tr><th>出身地</th><td><%= @mypagebirth_place %></td></tr>
+            <tr><th>出身地</th><td><%= @mypage.birth_place %></td></tr>
           </table>
               <div class="btn"><%=link_to "行きたいリスト",mypage_favorite_path(@mypage.id) , method: :GET, class: 'btn btn-primary' %> </div>
          </div>

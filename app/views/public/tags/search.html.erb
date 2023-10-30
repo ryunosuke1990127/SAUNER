@@ -26,9 +26,11 @@
            <tbody>
              <tr>
                <td><div><%= link_to sauna_path(sauna.id) do %><%= sauna.name%><% end %></div></td>
+               <td><div><%=%></div></td>
                <td><div></div></td>
-               <td><div></div></td>
-               <td><div></div></td>
+               <% sauna.tags.each do |tag|%>
+               <td><div><%= tag.tag_name%></div></td>
+               <% end %>
              </tr>
            </tbody>
              <% end %>

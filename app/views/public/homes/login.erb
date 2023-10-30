@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+ <body>
+   <div class="container">
+       <div class="row">
+        <div class="mx-auto">
+          <h1>どちらでログインされますか</h1>
+           <div><%= link_to "ゲストログイン",members_guest_sign_in_path%></div>
+           <div><%= link_to "会員ログイン",new_admin_session_path%></div>
+        </div>
+       </div>
+    </div>
+ </body>
+ </html>

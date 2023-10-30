@@ -2,12 +2,19 @@
 
 class Public::SessionsController < Devise::SessionsController
 
-before_action :configure_permitted_parameters, if: :devise_controller?
-before_action :member_state,only:[:create]
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :member_state,only:[:create]
 
-def after_sign_in_path_for(resource)
-     regions_path
-end
+  def after_sign_in_path_for(resource)
+       regions_path
+  end
+
+  def guest_sign_in
+    member = Member.guest
+    sign_in member
+    flash[:notice] = "ゲストユーザーとしてログインしました。"
+    redirect_to regions_path
+  end
 
   protected
 

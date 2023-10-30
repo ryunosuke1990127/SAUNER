@@ -9,14 +9,13 @@ class Member < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  # def self.guest
-  #   find_or_create_by!(email: 'guest@example.com') do |member|
-  #     member.password = SecureRandom.urlsafe_base64
-  #     member.name = "ゲスト"
-  #     member.name_kana = "げすと"
-  #     member.birth_place = "JP"
-  #     member.is_deleted = false
-  #     #＊上記は一例です。他に必要なカラムがあれば追記してください＊
-  #   end
-  # end
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |member|
+      member.password = SecureRandom.urlsafe_base64
+      member.name = "ゲスト"
+      member.name_kana = "げすと"
+      member.birth_place = "JP"
+      member.is_deleted = false
+    end
+  end
 end

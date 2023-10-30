@@ -10,7 +10,17 @@ class Sauna < ApplicationRecord
   has_many :tag_saunas, dependent: :destroy
   has_many :tags,through: :tag_saunas
 
-  # タグ保存のためのメソッドを定義
+  # 画像投稿用のメソッド
+  def get_iamge(width, height)
+    unless image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpeg')
+      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+      image.variant(resize_to_limit: [width, height]).processed
+  end
+
+
+  # タグ保存のためのメソッド
   def save_tag(sent_tags)
     # 現在存在するタグの取得
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
@@ -31,7 +41,7 @@ class Sauna < ApplicationRecord
     end
   end
 
-  # いいねを押したユーザーがfavoriteテーブルに存在するかを確認
+  # いいねを押したユーザーがfavoriteテーブルに存在するかを確認するためのメソッド
   def favorited_by?(member)
     favorites.exists?(member_id: member.id)
   end

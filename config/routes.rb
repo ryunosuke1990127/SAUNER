@@ -1,22 +1,25 @@
 Rails.application.routes.draw do
 
+  # 会委員ログイン用の設定
   devise_for :members, skip: [:passwords],  controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
 
+  # 管理者ログイン用の設定
   devise_for :admin, skip: [:registrations, :passwords],  controllers: {
     sessions: "admin/sessions"
   }
 
   # ゲストログイン用の設定
-  devise_scope :members do
-      post 'member/guest_sign_in', to:  'public/sessions#guest_sign_in'
+  devise_scope :member do
+      get '/members/guest_sign_in' =>'public/sessions#guest_sign_in'
   end
 
   # ユーザー側の設定
   scope module: :public do
     root to: 'homes#top'
+    get '/homes/login' => 'homes#login'
     get '/saunas/complete' => 'saunas#complete'
     post '/reviews/comment_create' => 'reviews#comment_create'
     get '/regions/region_sauna' => 'regions#region_sauna'

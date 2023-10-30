@@ -17,7 +17,7 @@
             <div class="member">出身地:<%= @member.birth_place %></div>
             <div class="member">メールアドレス:<%= @member.email %></div>
             <div class="member">会員ステータス:<%= @member.is_deleted ? '退会' : '有効'%></div>
-            <div><%=link_to 'レビュー履歴' ,class: 'btn btn-success'%></div>
+            <div><%=link_to 'レビュー履歴' ,admin_path(@member.id) ,method: :GET ,class: 'btn btn-success'%></div>
             <div><%=link_to 'ユーザーを無効にする',admin_member_withdraw_path(@member.id), method: :PATCH,class: 'btn btn-danger'%></div>
           </div>
         </div>
