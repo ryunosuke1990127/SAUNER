@@ -24,7 +24,8 @@ Rails.application.routes.draw do
     post '/reviews/comment_create' => 'reviews#comment_create'
     get '/regions/region_sauna' => 'regions#region_sauna'
     post '/tags/search' => 'tags#search'
-    post '/search/search_sauna' => 'searchs#search_sauna'
+    get '/search/search_sauna' => 'searchs#search_sauna'
+    get '/search/search_fail'  => 'searchs#search_fail'
 
     resources :saunas do
       get '/create_check' => 'saunas#create_cheak'

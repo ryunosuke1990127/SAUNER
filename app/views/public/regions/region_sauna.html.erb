@@ -26,15 +26,19 @@
            <tbody>
              <tr>
                <td><div><%= link_to sauna_path(sauna.id) do %><%= sauna.name%><% end %></div></td>
-               <td><div></div></td>
-               <td><div></div></td>
-               <td><div></div></td>
+               <td><div><%= sauna.favorites.count%>件</div></td>
+               <td><div><%= sauna.reviews.count%>件</div></td>
+               <td><div><% sauna.tags.each do |tag|%><%= tag.tag_name%>,<% end %></div></td>
              </tr>
            </tbody>
              <% end %>
            <% end %>
            </table>
-           <%= link_to "絞り込み表示",new_search_path %>
+           <%= form_with url: new_search_path, method: :GET do |f|%>
+           <%=f.hidden_field :region_id,value: @region_name.id %>
+           <%=f.submit '絞り込み表示'%>
+
+           <% end %>
          </div>
        </div>
     </div>

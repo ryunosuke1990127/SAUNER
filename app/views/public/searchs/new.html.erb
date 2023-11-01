@@ -7,7 +7,7 @@
 
  <body>
    <main>
-     <%= form_with url: search_search_sauna_path, method: :POST do |f| %>
+     <%= form_with url: search_search_sauna_path, method: :GET do |f| %>
      <form class="form-horizontal">
               <div class="form-group row my-3">
                <label class="col-sm-6"><h1>絞り込み条件を選択してください</h1></label>
@@ -26,6 +26,8 @@
               <div class="form-group row my-3">
                 <label class="col-sm-4"><%= f.submit "表示する",class: 'btn btn-success btn-lg '%></label>
               </div>
+              <!--どの地域のサウナ情報なのかを識別するために地域情報を渡す-->
+              <%=f.hidden_field :region_id,value: @region_id %>
       <% end %>
     </main>
   </body>

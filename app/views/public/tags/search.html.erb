@@ -9,7 +9,7 @@
    <div class="container">
        <div class="row">
         <div class="mx-auto">
-            <h1>(変更すること=地域別サウナ一覧を表示しその後にこの画面)</h1>
+            <h1>タグ検索結果です</h1>
           <table class="table">
             <!--テーブルヘッダ-->
             <thead>
@@ -26,11 +26,9 @@
            <tbody>
              <tr>
                <td><div><%= link_to sauna_path(sauna.id) do %><%= sauna.name%><% end %></div></td>
-               <td><div><%=%></div></td>
-               <td><div></div></td>
-               <% sauna.tags.each do |tag|%>
-               <td><div><%= tag.tag_name%></div></td>
-               <% end %>
+               <td><div><%= sauna.favorites.count%>件</div></td>
+               <td><div><%= sauna.reviews.count%>件</div></td>
+               <td><div><% sauna.tags.each do |tag|%><%= tag.tag_name%>,<% end %></div></td>
              </tr>
            </tbody>
              <% end %>
