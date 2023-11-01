@@ -7,11 +7,13 @@
 
  <body>
    <div class="container">
-       <div class="row">
+       <div class="row align-items-center justify-content-center">
         <div class="mx-auto">
-          <h1>どちらでログインされますか</h1>
-           <div><%= link_to "ゲストログイン",members_guest_sign_in_path%></div>
-           <div><%= link_to "会員ログイン",new_admin_session_path%></div>
+          <h1 class="text-center">どちらでログインされますか</h1>
+           <div class="text-center">
+            <%= link_to "ゲストログイン",members_guest_sign_in_path,class: 'btn btn-secondary' %>
+            <%= link_to "会員ログイン",new_admin_session_path,class: 'btn btn-primary' %>
+           </div>
         </div>
        </div>
     </div>
