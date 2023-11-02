@@ -8,17 +8,27 @@
  <body>
    <div class="container">
        <div class="row">
-        <div class="col-sm-5">
+        <div class="mx-auto">
           <h1>マイページ</h1>
-          <div class="btn">登録情報</div>
+            <div class="text-left pt-4 pb-3">
+            <h4>氏名</h4>
+              <div class="text-center"><%= @mypage.name %></div>
+            </div>
 
-          <table>
-            <tr><th>氏名</th><td><%= @mypage.name %></td></tr>
-            <tr><th>フリガナ</th><td><%= @mypage.name_kana%></td></tr>
-            <tr><th>出身地</th><td><%= @mypage.birth_place %></td></tr>
-          </table>
-              <div class="btn"><%=link_to "行きたいリスト",mypage_favorite_path(@mypage.id) , method: :GET, class: 'btn btn-primary' %> </div>
-         </div>
+            <div class="text-left pt-4 pb-3">
+            <h4>フリガナ</h4>
+              <div class="text-center"><%= @mypage.name_kana%></div>
+            </div>
+
+            <div class="text-left pt-4 pb-3">
+            <h4>出身地</h4>
+              <div class="text-center"><%= @mypage.birth_place %></div>
+            </div>
+
+            <div class="text-center">
+              <%=link_to "行きたいリスト",mypage_favorite_path(@mypage.id) , method: :GET, class: 'btn btn-success' %>
+            </div>
+        </div>
       </div>
     </div>
   </body>

@@ -11,14 +11,33 @@
       <div class="row">
         <div class="mx-auto">
           <h1><%=@member.name%>さんの会員詳細</h1>
-            <div class="member">会員ID:<%= @member.id %></div>
-            <div class="member">氏名:<%= @member.name%></div>
-            <div class="member">フリガナ:<%= @member.name_kana %></div>
-            <div class="member">出身地:<%= @member.birth_place %></div>
-            <div class="member">メールアドレス:<%= @member.email %></div>
-            <div class="member">会員ステータス:<%= @member.is_deleted ? '退会' : '有効'%></div>
-            <div><%=link_to 'レビュー履歴' ,admin_path(@member.id) ,method: :GET ,class: 'btn btn-success'%></div>
-            <div><%=link_to 'ユーザーを無効にする',admin_member_withdraw_path(@member.id), method: :PATCH,class: 'btn btn-danger'%></div>
+          <div class="text-left pt-4 pb-3">
+            <h4>氏名</h4>
+              <div class="text-center"><%= @member.name%></div>
+          </div>
+
+          <div class="text-left pt-4 pb-3">
+            <h4>フリガナ</h4>
+              <div class="text-center"><%= @member.name_kana %></div>
+          </div>
+
+          <div class="text-left pt-4 pb-3">
+            <h4>出身地</h4>
+              <div class="text-center"><%= @member.birth_place %></div>
+          </div>
+
+          <div class="text-left pt-4 pb-3">
+            <h4>メールアドレス</h4>
+              <div class="text-center"><%= @member.email %></div>
+          </div>
+
+          <div class="text-left pt-4 pb-3">
+            <h4>会員ステータス</h4>
+              <div class="text-center"><%= @member.is_deleted ? '退会' : '有効'%></div>
+          </div>
+
+            <div class="text-center"><%=link_to 'レビュー履歴' ,admin_path(@member.id) ,method: :GET ,class: 'btn btn-success'%>
+            <%=link_to 'ユーザーを無効にする',admin_member_withdraw_path(@member.id), method: :PATCH,class: 'btn btn-danger'%></div>
           </div>
         </div>
       </div>

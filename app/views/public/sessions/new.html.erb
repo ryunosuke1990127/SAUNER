@@ -1,30 +1,33 @@
-<h2>Log in</h2>
-<div>
-  <!--ログイン制限に違反している際のメッセージ-->
-  <%= flash[:notice] %>
-</div>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+ <body>
+   <main>
+     <div class="container">
+       <div class="row">
+        <div class="mx-auto">
+            <h2>会員ログイン</h2>
+            <div>
+              <!--ログイン制限に違反している際のメッセージ-->
+              <%= flash[:notice] %>
+            </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="text-left">メールアドレス</div>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" ,size: 30%>
+              <div class="text-left">パスワード</div>
+                <%= f.password_field :password, autocomplete: "current-password" %>
+              <div class="actions">
+                <div class="text-center pt-4 pb-3"><%= f.submit "ログイン" ,class: 'btn btn-success'%></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

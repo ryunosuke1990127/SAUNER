@@ -8,19 +8,51 @@
  <body>
    <div class="container">
        <div class="row">
-        <div class="col-sm-5">
-          <h1>投稿確認画面</h1>
-          <div class="btn">投稿確認<div>
+        <div class="mx-auto">
+          <h1>申請内容確認</h1>
 
-          <table>
-            <tr><th>サウナ名</th><td><%= @sauna.name %></td></tr>
-            <tr><th>地域</th><td><%= @sauna.region.region_name %></td></tr>
-            <tr><th>所在地</th><td><%= @sauna.location %></td></tr>
-            <tr><th>価格</th><td><%= @sauna.price%></td></tr>
-            <tr><th>投稿理由</th><td><%= @sauna.post_reason %></td></tr>
-            <tr><th>画像</th><td><%= image_tag @sauna.get_iamge(100,100) %></td></tr>
-          </table>
-              <div class="btn"><%=link_to "申請"  ,saunas_complete_path , method: :GET, class: 'btn btn-primary' %> </div>
+              <div class="text-left pt-2 pb-1">
+                <h4>サウナ名</h4>
+                  <div class="text-center"><%= @sauna.name %></div>
+              </div>
+
+              <div class="text-left pt-2 pb-1">
+                <h4>地域</h4>
+                  <div class="text-center"><%= @sauna.region.region_name %></div>
+              </div>
+
+
+              <div class="text-left pt-2 pb-1">
+                <h4>所在地</h4>
+                  <div class="text-center"><%= @sauna.location %></div>
+              </div>
+
+
+              <div class="text-left pt-2 pb-1">
+                <h4>価格</h4>
+                  <div class="text-center"><%= @sauna.price%></div>
+              </div>
+
+
+              <div class="text-left pt-2 pb-1">
+                <h4>投稿理由</h4>
+                  <div class="text-center"><%= @sauna.post_reason %></div>
+              </div>
+
+               <div class="text-left pt-2 pb-1">
+                <h4>画像</h4>
+                  <div class="text-center"><%= image_tag @sauna.get_iamge(100,100) %></div>
+               </div>
+
+                <div class="text-left pt-2 pb-1">
+                <h4>タグ</h4>
+                  <div class="text-center"><% @sauna.tags.each do |tag|%><%= tag.tag_name%>,<% end %></div>
+               </div>
+
+
+              <div class="text-center">
+                <%=link_to "申請"  ,saunas_complete_path , method: :GET, class: 'btn btn-primary' %>
+              </div>
          </div>
       </div>
     </div>
