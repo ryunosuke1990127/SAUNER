@@ -7,44 +7,147 @@
   <body>
     <div class="container">
        <div class="row">
-        <div class="col-md-3">
-　　　　<h1><%= image_tag @sauna.get_iamge(800,100)%></h1>
-　　　　<%= form_with model: @sauna ,url: new_review_path, method: :GET do |f|%>
-　　　　<!--サウナidを渡す-->
-　　　　<%= f.hidden_field :id , :value => @sauna.id%>
-　　　　<%= f.submit "レビューする", class:  'btn btn-success btn-lg '%>
-　　　　<% end %>
+        <div class="col-md-5">
+          <div class="margin-content">
+            <div class = "row">
+  　　　        　<%= image_tag @sauna.get_iamge(800,100)%>
+  　         </div>
+  　       </div>
+
+  　     <div class="row">
+  　       <div class="col-md-6">
+        　　　　　<%= form_with model: @sauna ,url: new_review_path, method: :GET do |f|%>
+      　　　    　<!--サウナidを渡す-->
+      　　　    　<%= f.hidden_field :id , :value => @sauna.id%>
+               <%= f.submit "レビューする", class:  'btn btn-success'%>
+               <% end %>
+          </div>
+          <div class="col-md-3 margin-content">
+　　　　  <!--いいね機能-->
+          <!--今ログインしているユーザーがそのサウナ情報にいいねしているかしていないかを判定-->
+          <%if @sauna.favorited_by?(current_member)%>
+            <!--すでにいいねしている場合-->
+            <p><%= link_to sauna_favorites_path(@sauna),method: :DELETE do%>🖤<%= @sauna.favorites.count %>いいね
+              <% end %>
+            </p>
+          <% else %>
+            <!--いいねをまだしていない場合-->
+            <p><%= link_to sauna_favorites_path(@sauna),method: :POST do%>🤍<%= @sauna.favorites.count %>いいね
+              <% end %>
+            </p>
+          <% end %>
+          </div>
+         </div>
         </div>
 
-        <div class="col-md-8 offset-md-1">
-          <div>投稿サウナ<%=@sauna.name%></div>
-          <div>投稿日<%=@sauna.updated_at%></div>
-          <div>地域<%=@sauna.region.region_name%></div>
-          <div>所在地<%=@sauna.location%></div>
-          <div>金額　¥<%=@sauna.price%></div>
-          <div>投稿理由<%=@sauna.post_reason%></div>
-        </div>
+        <div class="col-md-6 offset-md-1">
+         <div class="margin-content">
+          <div class="row">
+            <div class = "col-md-6">
+              <div>投稿サウナ</div>
+            </div>
+            <div class = "col-md-6">
+              <div><%=@sauna.name%></div>
+            </div>
+          </div>
+          </div>
+
+          <div class="margin-content">
+          <div class="row">
+            <div class = "col-md-6">
+              <div>投稿日</div>
+            </div>
+            <div class = "col-md-6">
+              <div><%=@sauna.updated_at%></div>
+            </div>
+          </div>
+          </div>
+
+          <div class="margin-content">
+          <div class="row">
+            <div class = "col-md-6">
+              <div>地域</div>
+            </div>
+            <div class = "col-md-6">
+              <div><%=@sauna.region.region_name%></div>
+            </div>
+          </div>
+          </div>
+
+          <div class="margin-content">
+          <div class="row">
+            <div class = "col-md-6">
+              <div>所在地</div>
+            </div>
+            <div class = "col-md-6">
+              <div><%=@sauna.location%></div>
+            </div>
+          </div>
+          </div>
+
+          <div class="margin-content">
+          <div class="row">
+            <div class = "col-md-6">
+              <div>金額</div>
+            </div>
+            <div class = "col-md-6">
+              <div>¥<%=@sauna.price%>円</div>
+            </div>
+          </div>
+          </div>
+
+          <div class="margin-content">
+          <div class="row">
+            <div class = "col-md-6">
+              <div>投稿理由</div>
+            </div>
+            <div class = "col-md-6">
+              <div><%=@sauna.post_reason%></div>
+            </div>
+          </div>
+          </div>
+
+          <div class="margin-content">
+          <div class="row">
+            <div class = "col-md-6">
+              <div>Tag</div>
+            </div>
+            <div class = "col-md-6">
+              <% @sauna.tags.each do |tag|%>
+                <div><%=tag.tag_name%></div>
+              <% end %>
+            </div>
+          </div>
+          </div>
+
       </div>
     </div>
-      <!--いいね機能-->
-      <!--今ログインしているユーザーがそのサウナ情報にいいねしているかしていないかを判定-->
-      <%if @sauna.favorited_by?(current_member)%>
-        <!--すでにいいねしている場合-->
-        <p><%= link_to sauna_favorites_path(@sauna),method: :DELETE do%>🖤<%= @sauna.favorites.count %>いいね
-          <% end %>
-        </p>
-      <% else %>
-        <!--いいねをまだしていない場合-->
-        <p><%= link_to sauna_favorites_path(@sauna),method: :POST do%>🤍<%= @sauna.favorites.count %>いいね
-          <% end %>
-        </p>
-      <% end %>
       <!--レビューページ-->
-      <% @review.each do |r|%>
-      <div>レビュー件数 <%= @review.count %>件</div>
-        <div>レビュー者:<%=r.member.name%></div>
-        <div>内容:<%=r.review_content%></div>
-        <%= link_to 'もっと見る' ,review_path(r.id) %>
-      <% end %>
-  </body>
+      <div class="row">
+        <div class = "col">
+          <div class= "row">
+            <div class ="col-md-3">
+              <div class = "count">レビュー件数 <%= @review.count %>件</div>
+            </div>
+          </div>
+
+          <div class = "content">
+          <div class="row">
+          <% @review.each do |r|%>
+            <div class="col-md-3">
+              <div>レビュー者:<%=r.member.name%></div>
+            </div>
+            <div class="col-md-5">
+              <div>内容:<%=r.review_content%></div>
+            </div>
+            <div class="col-md-2">
+              <div><%= link_to 'もっと見る' ,review_path(r.id) %></div>
+            </div>
+            <% end %>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
 </html>
