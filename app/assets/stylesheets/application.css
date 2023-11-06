@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.nav-item{
+  margin-right: 5px;
+}
+
+.shadow-sm{
+  background-color:#CC9966;
+}

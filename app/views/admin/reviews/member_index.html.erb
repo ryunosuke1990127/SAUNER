@@ -25,7 +25,7 @@
              <tr>
                <td><div><%= m.sauna.name%></div></td>
                <td><div><%= m.sauna.region.region_name%></div></td>
-               <td><div><%= link_to admin_review_path(m.id) do %><%= m.updated_at%><% end %> </div></td>
+               <td><div><%= link_to admin_review_path(m.id) do %><%= l m.updated_at%><% end %> </div></td>
              </tr>
            </tbody>
            <% end %>

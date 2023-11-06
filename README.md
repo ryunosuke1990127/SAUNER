@@ -34,6 +34,7 @@
 フリー画像として以下の素材を利用
 - https://www.pakutaso.com/nature/
 - https://www.photo-ac.com/main/search?q=%E3%82%B5%E3%82%A6%E3%83%8A&srt=dlrank&qt=&p=1&pt=A
+- https://icons8.jp/icons
 
 ## 実装機能リストURL
 - https://docs.google.com/spreadsheets/d/1AOb9r6jjC7IqFRiPWqAwdrEp9MbLDR4Pz4grP8T4uKw/edit#gid=1091086188

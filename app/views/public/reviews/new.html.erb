@@ -8,35 +8,37 @@
  <body>
    <main>
      <%= form_with model: @review ,url: reviews_path, method: :POST do |f| %>
-     <form class="form-horizontal">
-              <div class="form-group row my-3">
-               <label class="col-sm-6"><h1>レビュー投稿</h1></label>
-              </div>
+       <div class="container">
+         <div class="row">
+           <div class="col-md-8">
+                <h1>レビュー投稿</h1>
+           </div>
+         </div>
 
-              <div class="form-group row my-3">
-                <label class="col-sm-4">レビューサウナ</label>
-                 <dd><label class="col-sm-4"><%= @sauna.name %></label></dd>
-              </div>
+        <div class="row">
+          <div class="col-md-5 title">レビューサウナ</div>
+          <div class="col-md-5"><%= @sauna.name %></div>
+        </div>
 
-              <div class="form-group row my-3">
-                <label class="col-sm-4">レビューユーザー</label>
-                 <dd><label class="col-sm-4"><%= @member %></label></dd>
-              </div>
+        <div class="row">
+          <div class="col-md-5 title">レビューユーザー</div>
+          <div class="col-md-5"><%= @member %></div>
+        </div>
 
-              <div class="form-group row my-3">
-                <label class="col-sm-4">レビュー内容</label>
-                <dd><label class="col-sm-4"><%= f.text_field :review_content %></label></dd>
-              </div>
+        <div class="row">
+          <div class="col-md-5 title">レビュー内容</div>
+          <div class="col-md-5"><%= f.text_area :review_content %></div>
+        </div>
+        <!--hidden_fieldでサウナ情報と今ログインしているユーザー情報を渡す-->
+            <!--サウナ情報ー-->
+            <%= f.hidden_field :sauna_id , :value => @sauna.id%>
+            <!--ログインユーザー-->
+            <%= f.hidden_field :member_id , :value => current_member.id%>
 
-              <!--hidden_fieldでサウナ情報と今ログインしているユーザー情報を渡す-->
-                <!--サウナ情報ー-->
-                <%= f.hidden_field :sauna_id , :value => @sauna.id%>
-                <!--ログインユーザー-->
-                <%= f.hidden_field :member_id , :value => current_member.id%>
-
-              <div class="form-group row my-3">
-                <label class="col-sm-4"><%= f.submit "レビューする",class: 'btn btn-success'%></label>
-              </div>
+        <div class="review">
+          <%= f.submit "レビューする",class: 'btn btn-success'%>
+        </div>
+      </div>
       <% end %>
     </main>
   </body>

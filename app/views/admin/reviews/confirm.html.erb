@@ -11,7 +11,7 @@
 　　　　<h1>下記の投稿を削除しますか?</h1>
         <div>レビューサウナ:<%=@review_detail.sauna.name%></div>
         <div>レビューユーザー:<%=@review_detail.member.name%></div>
-        <div>レビュー日:<%=@review_detail.updated_at%></div>
+        <div>レビュー日:<%= l @review_detail.updated_at%></div>
         <div>レビュー内容:<%=@review_detail.review_content%></div>
         <!--このページのレビュー情報を渡す-->
         <%= form_with model: @review_detail ,url: admin_review_path(@review_detail.id), method: :DELETE do |f|%>
