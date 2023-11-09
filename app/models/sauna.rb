@@ -10,6 +10,12 @@ class Sauna < ApplicationRecord
   has_many :tag_saunas, dependent: :destroy
   has_many :tags,through: :tag_saunas
 
+  # バリデーション設定
+  validates :name, presence: true
+  validates :location, presence: true
+  validates :post_reason, presence: true
+  validates :price, presence: true
+
   # 画像投稿用のメソッド
   def get_iamge(width, height)
     unless image.attached?

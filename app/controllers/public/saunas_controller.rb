@@ -24,10 +24,16 @@ class Public::SaunasController < ApplicationController
       @sauna = current_member.saunas.new(sauna_params)
       # 受け取った値を区切る
       tag_list = params[:sauna][:tag_name].split(',')
-        if @sauna.save
+        if tag_list.empty?
+          @sauna.errors.add(:tag_name,"タグ名を入力してください")
+          render :new
+        elsif @sauna.save
+          @sauna.save
           @sauna.save_tag(tag_list)
           redirect_to sauna_create_check_path(@sauna.id)
+
         else
+          render :new
         end
     end
 

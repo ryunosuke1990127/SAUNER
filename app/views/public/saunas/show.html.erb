@@ -3,6 +3,9 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/0ea1809b33.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <div class="container">
@@ -27,12 +30,12 @@
           <!--今ログインしているユーザーがそのサウナ情報にいいねしているかしていないかを判定-->
           <%if @sauna.favorited_by?(current_member)%>
             <!--すでにいいねしている場合-->
-            <p><%= link_to sauna_favorites_path(@sauna),method: :DELETE do%>🖤<%= @sauna.favorites.count %>いいね
+            <p><%= link_to sauna_favorites_path(@sauna),method: :DELETE do%><i class="fa-solid fa-heart unlike-btn"></i><%= @sauna.favorites.count %>いいね
               <% end %>
             </p>
           <% else %>
             <!--いいねをまだしていない場合-->
-            <p><%= link_to sauna_favorites_path(@sauna),method: :POST do%>🤍<%= @sauna.favorites.count %>いいね
+            <p><%= link_to sauna_favorites_path(@sauna),method: :POST do%><i class="fa-solid fa-heart like-btn"></i><%= @sauna.favorites.count %>いいね
               <% end %>
             </p>
           <% end %>
@@ -58,7 +61,7 @@
               <div>投稿日</div>
             </div>
             <div class = "col-md-6">
-              <div><%=@sauna.updated_at%></div>
+              <div><%= l @sauna.updated_at%></div>
             </div>
           </div>
           </div>

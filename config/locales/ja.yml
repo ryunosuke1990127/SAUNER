@@ -1,4 +1,19 @@
 ja:
   time:
     formats:
-      default: "%Y/%m/%d %H:%M:%S"
+      default: "%Y/%m/%d %H:%M"
+
+ja:
+  activerecord:
+    errors:
+      models:
+        sauna:
+          attributes:
+            location:
+              blank: "(場所)を入力してください"
+            name:
+              blank: "(サウナ名)を入力してください"
+            price:
+              blank: "(金額)を入力してください"
+            post_reason:
+              blank: "(投稿理由)を入力してください"

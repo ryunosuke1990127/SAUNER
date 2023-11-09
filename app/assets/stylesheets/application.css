@@ -21,3 +21,8 @@
 .shadow-sm{
   background-color:#CC9966;
 }
+
+.guest{
+  color: red;
+  font-family:  serif;
+}

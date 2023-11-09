@@ -18,8 +18,6 @@ class Admin::MembersController < ApplicationController
     # クリックしたユーザーの取得し、退会ステータスを有効から無効へ
     @member = Member.find(params[:member_id])
     @member.update(is_deleted: true)
-    # セッションを消して会員一覧へ
-    reset_session
     redirect_to admin_members_path
   end
 

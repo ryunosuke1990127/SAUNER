@@ -12,8 +12,8 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     member = Member.guest
     sign_in member
-    flash[:notice] = "ゲストユーザーとしてログインしました。"
-    redirect_to regions_path
+    session[:guest_sign_in]= true
+    redirect_to regions_path  notice: "ゲストとしてログインしました"
   end
 
   protected
