@@ -1,9 +1,4 @@
 ja:
-  time:
-    formats:
-      default: "%Y/%m/%d %H:%M"
-
-ja:
   activerecord:
     errors:
       models:
@@ -17,3 +12,6 @@ ja:
               blank: "(金額)を入力してください"
             post_reason:
               blank: "(投稿理由)を入力してください"
+  time:
+    formats:
+      default: "%Y-%m-%d %H:%M:%S"

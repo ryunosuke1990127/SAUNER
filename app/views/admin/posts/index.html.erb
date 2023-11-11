@@ -28,7 +28,7 @@
                <td><div><%= post.member.name%></div></td>
                <td><div><%= link_to admin_post_path(post.id) do %><%= post.name %><% end %></div></td>
                <td><div><%= post.region.region_name %></div></td>
-               <td><div><%= l post.updated_at %></div></td>
+               <td><div><%=  l post.updated_at%></div></td>
              </tr>
            </tbody>
              <% end %>

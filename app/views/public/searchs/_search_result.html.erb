@@ -1,0 +1,13 @@
+<!--検索結果用の部分テンプレート-->
+<% @sauna_result.each do |sauna| %>
+  <% if sauna.is_approve==true%>
+    <tbody>
+      <tr>
+        <td><div><%= link_to sauna_path(sauna.id) do %><%= sauna.name%><% end %></div></td>
+        <td><div><%= sauna.favorites.count%>件</div></td>
+        <td><div><%= sauna.reviews.count%>件</div></td>
+        <td><div><% sauna.tags.each do |tag|%><%= tag.tag_name%>,<% end %></div></td>
+      </tr>
+    </tbody>
+  <% end %>
+<% end %>

@@ -42,12 +42,12 @@
 
                         <div class="form-group row my-3">
                           <label class="col-sm-4">金額</label>
-                           <dd><label class="col-sm-4"><%= f.text_field :price, placeholder: "金額"  %></label></dd>
+                           <dd><label class="col-sm-4"><%= f.text_field :price, placeholder: "金額"  %></label></dd>円
                         </div>
 
                         <div class="form-group row my-3">
                           <label class="col-sm-4">投稿理由</label>
-                           <dd><label class="col-sm-4"><%= f.text_area :post_reason%></label></dd>
+                           <dd><label class="col-sm-4"><%= f.text_area :post_reason,size: "30x3"%></label></dd>
                         </div>
 
                         <div class="form-group row my-3">
@@ -56,8 +56,8 @@
                         </div>
 
                          <div class="form-group row my-3">
-                          <label class="col-sm-4">タグ</label>
-                           <dd><label class="col-sm-4"><%= f.text_field :tag_name %></label></dd>
+                          <label class="col-sm-4">タグ<br/>(※複数登録する際は","で区切ってください)</label>
+                          <dd><label class="col-sm-4"><%= f.text_field :tag_name %></label></dd>
                         </div>
 
                         <div class="text-center">

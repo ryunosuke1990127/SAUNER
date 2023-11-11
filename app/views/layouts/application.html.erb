@@ -13,7 +13,7 @@
   <header class= "shadow-sm">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a class="navbar-brand p-3" href="/"><%= image_tag('icon.png') %></a>
+        <a class="navbar-brand p-3" href="/"><%= image_tag('icon.png') %>SAUNAER</a>
         <div class = "collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
 
@@ -21,17 +21,17 @@
                   <% if session[:guest_sign_in] %>
                     <div class="guest">ゲストログイン中です</div>
                   <% end %>
-                  <li class="nav-item"><%= link_to "マイページ",mypage_path(current_member.id), method: :GET, class: 'nav-link text-dark' %></li>
+                  <li class="nav-item "><%= link_to "マイページ",mypage_path(current_member.id), method: :GET, class: 'nav-link text-dark' %></li>
                   <li class="nav-item"><%= link_to "サウナ一覧",regions_path, method: :GET, class: 'nav-link text-dark'%></li>
                   <li class="nav-item"><%= link_to "投稿",new_sauna_path, method: :GET, class: 'nav-link text-dark'%></li>
                   <li class="nav-item"><%= link_to "ログアウト",destroy_member_session_path, method: :delete, class: 'nav-link text-dark'%></li>
                   <div class="row　display: flex; flex-wrap: wrap;">
-                    <div>タグ検索欄
+                    <li>
                       <%= form_with model: @tag, url: tags_search_path, method: :POST do |t|%>
-                      <%=t.text_field :tag_name%>
+                      <%=t.text_field :tag_name, placeholder: "タグ検索欄"%>
                       <%=t.submit '検索'%>
                       <% end %>
-                    </div>
+                    </li>
                   </div>
                 <% elsif admin_signed_in? %>
                 <!--管理者用のヘッダー-->

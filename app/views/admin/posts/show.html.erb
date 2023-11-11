@@ -7,17 +7,13 @@
   <body>
     <div class="container">
        <div class="row">
-        <div class="col-md-3">
-
-        </div>
-
-        <div class="col-md-8 offset-md-1">
-          <div class="content1">投稿サウナ<%=@post.name%></div>
-          <div class="content1">投稿日<%= l @post.updated_at%></div>
-          <div class="content1">地域<%=@post.region.region_name%></div>
-          <div class="content1">所在地<%=@post.location%></div>
+        <div class="mx-auto">
+          <div class="content1">投稿サウナ:<%=@post.name%></div>
+          <div class="content1">投稿日:<%= l @post.updated_at%></div>
+          <div class="content1">地域:<%=@post.region.region_name%></div>
+          <div class="content1">所在地:<%=@post.location%></div>
           <div class="content1">金額　¥<%=@post.price%></div>
-          <div class="content1">投稿理由<%=@post.post_reason%></div>
+          <div class="content1">投稿理由:<%=@post.post_reason%></div>
           <div class="content1">投稿画像 <%= image_tag @post.get_iamge(800,100)%></div>
       　<%=link_to "却下"  ,admin_post_path(@post.id), method: :DELETE, class: 'btn btn-danger' %>
         <%=link_to "投稿"  ,admin_post_path(@post.id) , method: :PATCH, class: 'btn btn-success' %>

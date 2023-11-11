@@ -20,19 +20,8 @@
                 <th>Tag</th>
               </tr>
             </thead>
-            <!--テーブルの項目設定(投稿承認されたもの=is_approveがtrueのみのものを表示)-->
-           <% @saunas_index.each do |sauna| %>
-            <% if sauna.is_approve==true%>
-           <tbody>
-             <tr>
-               <td><div><%= link_to sauna_path(sauna.id) do %><%= sauna.name%><% end %></div></td>
-               <td><div><%= sauna.favorites.count%>件</div></td>
-               <td><div><%= sauna.reviews.count%>件</div></td>
-               <td><div><% sauna.tags.each do |tag|%><%= tag.tag_name%>,<% end %></div></td>
-             </tr>
-           </tbody>
-             <% end %>
-           <% end %>
+             <!--部分テンプレートで呼び出し-->
+             <%= render partial: 'public/searchs/search_result', locals: { sauna_result: @sauna_result } %>
            </table>
          </div>
        </div>
