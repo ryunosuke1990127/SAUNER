@@ -22,7 +22,7 @@
                     <div class="guest">ゲストログイン中です</div>
                   <% end %>
                   <li class="nav-item "><%= link_to "マイページ",mypage_path(current_member.id), method: :GET, class: 'nav-link text-dark' %></li>
-                  <li class="nav-item"><%= link_to "サウナ一覧",regions_path, method: :GET, class: 'nav-link text-dark'%></li>
+                  <li class="nav-item"><%= link_to "サウナ一",regions_path, method: :GET, class: 'nav-link text-dark'%></li>
                   <li class="nav-item"><%= link_to "投稿",new_sauna_path, method: :GET, class: 'nav-link text-dark'%></li>
                   <li class="nav-item"><%= link_to "ログアウト",destroy_member_session_path, method: :delete, class: 'nav-link text-dark'%></li>
                   <div class="row　display: flex; flex-wrap: wrap;">
