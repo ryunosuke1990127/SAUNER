@@ -1,6 +1,7 @@
 {
   "name": "sauna-review",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
