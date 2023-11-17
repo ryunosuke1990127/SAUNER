@@ -21,7 +21,12 @@
 - サウナ好きの人が地元とは違う地域に行った際にその地域の人気サウナを調べることができる
 - サウナに通い始めたい人が地元の人気サウナを調べ施設情報や人気度などの情報をもとに通いたいサウナを選択できる
 ## 設計書
-後ほど作成予定
+- E-R図(https://drive.google.com/file/d/1tRrLOEwKO_az1Nk6Xj4zc2w2x4uF2Rih/view?usp=drive_link)
+- ワイヤーフレーム(https://drive.google.com/file/d/1WNiSWhnyBX-7gkwM3YUr1ZL8kGVxHNlp/view?usp=drive_link)
+- UL Flows(https://drive.google.com/file/d/1vFaPiSosZhfj0fSQhgeS838qg_1E1NSt/view?usp=drive_link)
+- テーブル定義書(https://docs.google.com/spreadsheets/d/16ZLRBBVL-Y5u58IaN6bQfj2sE0NOHIGmsAyyTIIZ0Cs/edit?usp=drive_link)
+- 詳細設計書(https://docs.google.com/spreadsheets/d/16c7MK3fVg2jir82F4isOXtuSJvc1tKKE1Ljtje96Q0A/edit?usp=drive_link)
+- テスト仕様書(https://docs.google.com/spreadsheets/d/1wanyzHnZ92jP-XJA8STvBuqkiWkcFciwlQReyp7wCTQ/edit?usp=drive_link)
 ​
 ## 開発環境
 - OS：Linux(CentOS)
