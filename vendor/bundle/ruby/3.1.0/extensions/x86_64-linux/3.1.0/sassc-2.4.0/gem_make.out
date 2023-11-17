@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/PF_create/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
-/home/ec2-user/.rbenv/versions/3.1.2/bin/ruby -I /home/ec2-user/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20231113-3485-kmvyfi.rb extconf.rb
+/home/ec2-user/.rbenv/versions/3.1.2/bin/ruby -I /home/ec2-user/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20231117-9295-ldr85y.rb extconf.rb
 creating Makefile
 
 current directory: /home/ec2-user/PF_create/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
@@ -77,4 +77,4 @@ linking shared-object sassc/libsass.so
 
 current directory: /home/ec2-user/PF_create/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 libsass.so ./.gem.20231113-3485-sjlldd/sassc
+/usr/bin/install -c -m 0755 libsass.so ./.gem.20231117-9295-ve63ha/sassc
