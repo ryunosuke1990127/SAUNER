@@ -57,6 +57,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
+gem 'sassc', '~> 2.4.0'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
