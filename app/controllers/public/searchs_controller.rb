@@ -15,7 +15,7 @@ class Public::SearchsController < ApplicationController
     price = params[:price]
     location = params[:location]
     # 入力情報をもとに対象のサウナを検索
-    @sauna_result = Sauna.where("CAST(price AS INTEGER) <= ? ", "#{price}").where("location LIKE ?", "%#{location}%").where(is_approve: true).where(region_id: region_id )
+    @sauna_result = Sauna.where("price <= ? OR location LIKE ?", price, location).where(is_approve: true).where(region_id: region_id )
     if @sauna_result.empty?
       redirect_to search_search_fail_path
     end
